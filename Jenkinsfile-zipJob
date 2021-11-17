@@ -6,7 +6,7 @@ pipeline {
          sh '''
          ls /tmp | grep zip_job.sh
          echo 'running zip_job script'
-         mkdir scripts
+         [ -f scripts ] && cp /tmp/zip_job.sh ./scripts || mkdir scripts; cp /tmp/zip_job.sh ./scripts
          cp /tmp/zip_job.sh ./scripts
          ls scripts
          pwd
