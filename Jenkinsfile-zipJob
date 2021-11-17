@@ -6,7 +6,6 @@ pipeline {
          echo 'running zip_job script'
          mkdir scripts
          cp /tmp/zip_job.sh ./scripts
-         ls scripts/zip_job.sh
        }
       }
     }
