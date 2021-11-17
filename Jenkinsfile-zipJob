@@ -7,13 +7,11 @@ pipeline {
          ls /tmp | grep zip_job.sh
          echo 'running zip_job script'
          ls -latr
-        # [ -f scripts ] && cp /tmp/zip_job.sh ./scripts || mkdir scripts; cp /tmp/zip_job.sh ./scripts
-         #cp /tmp/zip_job.sh ./scripts
-         #ls scripts
-         #pwd
-         #chmod +x ./scripts/zip_job.sh
-         #sh ./script/zip_job.sh
+         [ -f scripts ] && cp /tmp/zip_job.sh ./scripts || mkdir scripts; 
+         cp /tmp/zip_job.sh ./scripts
          sh /tmp/zip_job.sh
+         echo ' list all zip files that created :'
+         ls -lart | grep zip
          '''
        }
       }
