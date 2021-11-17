@@ -6,7 +6,7 @@ pipeline {
          set -x
          echo 'running zip_job script'
          mkdir scripts
-         cp zip_job.sh ./scripts
+         cp /tmp/zip_job.sh ./scripts
          chmod +x scripts/zip_job.sh
          ./scripts/zip_job.sh
        }
