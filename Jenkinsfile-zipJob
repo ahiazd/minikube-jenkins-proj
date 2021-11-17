@@ -6,12 +6,14 @@ pipeline {
          sh '''
          ls /tmp | grep zip_job.sh
          echo 'running zip_job script'
-         [ -f scripts ] && cp /tmp/zip_job.sh ./scripts || mkdir scripts; cp /tmp/zip_job.sh ./scripts
-         cp /tmp/zip_job.sh ./scripts
-         ls scripts
-         pwd
-         chmod +x ./scripts/zip_job.sh
-         sh ./script/zip_job.sh
+         ls -latr
+        # [ -f scripts ] && cp /tmp/zip_job.sh ./scripts || mkdir scripts; cp /tmp/zip_job.sh ./scripts
+         #cp /tmp/zip_job.sh ./scripts
+         #ls scripts
+         #pwd
+         #chmod +x ./scripts/zip_job.sh
+         #sh ./script/zip_job.sh
+         sh /tmp/zip_job.sh
          '''
        }
       }
