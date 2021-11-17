@@ -4,9 +4,12 @@ pipeline {
     stage ('BUILD') {
      steps {
          sh '''
+         ls /tmp | grep zip_job.sh
          echo 'running zip_job script'
          mkdir scripts
          cp /tmp/zip_job.sh ./scripts
+         ls scripts
+         pwd
          chmod +x ./scripts/zip_job.sh
          sh ./script/zip_job.sh
          '''
