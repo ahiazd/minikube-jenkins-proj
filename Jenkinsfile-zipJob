@@ -3,12 +3,10 @@ pipeline {
    stages {
     stage ('BUILD') {
      steps {
-         pwd
          echo 'running zip_job script'
          mkdir scripts
-         ls  scripts/zip_job.sh
          cp /tmp/zip_job.sh ./scripts
-         scripts/zip_job.sh
+         sh 'scripts/zip_job.sh'
        }
       }
     }
