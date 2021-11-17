@@ -1,0 +1,14 @@
+pipeline {
+  agent { dockerfile true}
+   stages {
+    stage ('BUILD') {
+     steps {
+         set -x
+         echo 'running zip_job script'
+         mkdir scripts
+         cp zip_job.sh ~/scripts
+         ./scripts/zip_job.sh
+       }
+      }
+    }
+  }
