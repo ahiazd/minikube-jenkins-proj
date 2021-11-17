@@ -12,6 +12,8 @@ pipeline {
          sh /tmp/zip_job.sh
          echo ' list all zip files that created :'
          ls -lart | grep zip
+         rm -rf ./scripts; rm *.zip *.txt;
+         ls -lart
          '''
        }
       }
