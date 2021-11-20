@@ -1,16 +1,10 @@
 pipeline {
-   agent any
+   agent { dockerfile true }
     stages {
         stage('test') {
             steps {
                 sh 'echo "hello"'
             }
-           }
-         stage ('test script') {
-         agent { label 'master' }
-            steps {
-          sh 'echo "Hello test2" '
-             }
            }
          }
       }
