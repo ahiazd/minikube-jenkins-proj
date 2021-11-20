@@ -1,19 +1,17 @@
 pipeline {
- agent any
-  stages { 
-   stage ('pre run') {
-    steps {
-     sh 'echo "pre run"'
+   agent any
+    stages {
+        stage('test') {
+            steps {
+                sh 'echo "hello"'
+            }
+           }
+         stage ('test script') {
+         agent { label 'master' }
+            steps {
+          sh 'echo "Hello test2" '
+             }
+           }
+         }
       }
-     }
-  agent { label 'master' }
-    stage ('Test') {
-     steps {
-      sh '''
-       echo " dockerfile runs as an agent now... "
-       '''
-       }
-      }
-    }
-  }
    
