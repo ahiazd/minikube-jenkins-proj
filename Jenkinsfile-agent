@@ -1,5 +1,5 @@
     podTemplate {
-    node(python) {
+    node("python") {
         stage('Run shell') {
             sh 'echo hello world'
         }
