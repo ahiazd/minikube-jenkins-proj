@@ -1,4 +1,3 @@
-pipeline {
     podTemplate {
     node(python) {
         stage('Run shell') {
