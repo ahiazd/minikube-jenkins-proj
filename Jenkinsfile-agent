@@ -1,11 +1,10 @@
 pipeline {
-  agent { label 'slave'}
+  agent { dockerfile true}
    stages {
     stage ('Test') {
      steps {
       sh '''
-       [ -f /tmp/zip_job.sh ] && echo "zip_job.sh EXIST at /tmp ." || echo "FILE does not exist." 
-       cat /etc/centos-release
+       echo " dockerfile runs as an agent now... "
        '''
        }
       }
