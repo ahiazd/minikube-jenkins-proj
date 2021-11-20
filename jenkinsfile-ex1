@@ -7,10 +7,9 @@ pipeline {
             }
         }
       }
-      agent { dockerfile true}
-    stages {
-        stage('test-agent') {
-            steps {
+     stage('test-agent') {
+      agent { dockerfile true}    
+           steps {
                 sh 'echo "hello"'
                 }
           }
