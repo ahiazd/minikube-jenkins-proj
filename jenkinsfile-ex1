@@ -1,11 +1,18 @@
 pipeline {
-   agent { label 'master' }
+   agent none
     stages {
         stage('test') {
             steps {
                 sh 'echo "hello"'
             }
-        }
+           }
+         stage ('test script') {
+         agent { Dockerfile true }
+            steps {
+          sh 'echo "Hello test2" '
+             }
+           }
+         }
       }
       
  }
