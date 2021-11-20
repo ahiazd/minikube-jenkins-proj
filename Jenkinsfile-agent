@@ -1,12 +1,12 @@
 pipeline {
- agent { label 'master' }
+ agent any
   stages { 
    stage ('pre run') {
     steps {
      sh 'echo "pre run"'
       }
      }
-  agent { dockerfile true}
+  agent { label 'master' }
     stage ('Test') {
      steps {
       sh '''
