@@ -12,7 +12,7 @@ pipeline {
           sh 'echo "Hello test2" '
              }
            }
-          agent { dockerfile} 
+          agent { dockerfile true} 
            steps {
            sh 'echo "~~~~ running dockerfile as an agent ~~~~~ "'
            }
