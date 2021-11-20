@@ -1,5 +1,5 @@
 pipeline {
-   agent {label 'docker-slave' }
+   agent any
     stages {
         stage('test') {
             steps {
@@ -7,14 +7,16 @@ pipeline {
             }
            }
          stage ('test script') {
-         agent { dockerfile true }
+         agent { label 'master' }
             steps {
-          sh 'echo "Hello test2" '
+         sh 'echo "Hello test2" '
              }
-           }
-          agent { dockerfile true} 
+            }
+          stage ('test script') { 
+            agent { dockerfile true} 
            steps {
            sh 'echo "~~~~ running dockerfile as an agent ~~~~~ "'
+           }
            }
          }
       }
