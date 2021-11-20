@@ -1,12 +1,9 @@
 pipeline {
-    agent { 
-     docker { image ‘dockerfile:latest’ }
-    stages {
-        stage('test') {
-            steps {
-                sh 'echo "hello"'
-            }
-           }
-         }
-      }
-   }
+    podTemplate {
+    node(python) {
+        stage('Run shell') {
+            sh 'echo hello world'
+        }
+    }
+}
+
