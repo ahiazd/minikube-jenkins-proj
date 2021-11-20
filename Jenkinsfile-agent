@@ -1,9 +1,4 @@
 pipeline {
- agent { label 'master' }
-    docker {
-      image 'node:lts-buster-slim'
-      args '-p 8989:8989'
-    }
   agent { dockerfile true}
    stages {
     stage ('Test') {
