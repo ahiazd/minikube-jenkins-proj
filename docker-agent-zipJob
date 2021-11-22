@@ -17,7 +17,7 @@ podTemplate(containers: [
                 }
             }
             
-            container('node') {
+            agent { label 'master'} {
                 stage('2nd stage') {
                     sh '''
                     echo "Hello Docker agent - second node test"
