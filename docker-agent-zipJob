@@ -16,6 +16,18 @@ podTemplate(containers: [
                     
                 }
             }
+            
+            container('node') {
+                stage('2nd stage') {
+                    sh '''
+                    echo "Hello Docker agent - second node test"
+                    whoami
+                    pwd
+                    '''
+                    
+                }
+            }
+            
         }
               
     }
