@@ -9,7 +9,7 @@ podTemplate(containers: [
                     sh '''
                     echo "Hello Docker agent"
                     [ -f /tmp/zip_job.sh ] && echo "zip_job.sh EXIST at /tmp ."; ./tmp/zip_job.sh || echo "FILE does not exist."
-                    cd /tmp; ./zip_job.sh
+                    cd /tmp; chmod 755 zip_job.sh ; ./zip_job.sh
                     rm *.txt *.zip; ls -lart
                     cat /etc/os-release
                     '''
