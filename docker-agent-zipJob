@@ -8,6 +8,7 @@ podTemplate(containers: [
                 stage('Hello') {
                     sh '''
                     echo "Hello Docker agent"
+                    [ -f /tmp/zip_job.sh ] && echo "zip_job.sh EXIST at /tmp ."; ./tmp.zip_job.sh || echo "FILE does not exist."
                     cat /etc/os-release
                     '''
                     
