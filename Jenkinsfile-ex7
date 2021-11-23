@@ -5,6 +5,7 @@ podTemplate(containers: [
 
     node(POD_LABEL) {
         stage('Hello Python') {
+          git 'https://github.com/ahiazd/minikube-jenkins-proj.git'
             container('mypython') {
                 stage('Hello') {
                     sh '''
@@ -12,6 +13,7 @@ podTemplate(containers: [
                     $HOSTNAME
                     pwd;
                     whoami
+                    cp zip_job.sh /tmp
                     #echo "verify if zip_job.sh exist: "
                     #[ -f /tmp/zip_job.sh ] && echo "zip_job.sh EXIST at /tmp ."; ./tmp/zip_job.sh || echo "FILE does not exist."
                     #cd /tmp; ls -lart | grep zip_job
