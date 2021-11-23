@@ -1,0 +1,23 @@
+podTemplate(containers: [
+    containerTemplate(name: 'mypython', image: 'ahiaz:latest', command: 'sleep', args: '99d'),
+    
+  ]) {
+
+    node(POD_LABEL) {
+        stage('Hello Python') {
+            container('mypython') {
+                stage('Hello') {
+                    sh '''
+                    echo "verify if zip_job.sh exist: "
+                    [ -f /tmp/zip_job.sh ] && echo "zip_job.sh EXIST at /tmp ."; ./tmp/zip_job.sh || echo "FILE does not exist."
+                    cd /tmp; chmod 755 zip_job.sh ; ./zip_job.sh
+                    rm *.txt *.zip; ls -lart
+                    echo "OS version: "
+                    cat /etc/os-release            
+                    '''
+                    
+                }
+            }
+        }
+    }       
+}
