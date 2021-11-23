@@ -5,7 +5,7 @@ podTemplate(containers: [
 
     node(POD_LABEL) {
         stage('Hello Python') {
-          git 'https://github.com/ahiazd/minikube-jenkins-proj.git'
+          git 'https://github.com/ahiazd/minikube-jenkins-proj.git', branch: 'main'
             container('mypython') {
                 stage('Hello') {
                     sh '''
