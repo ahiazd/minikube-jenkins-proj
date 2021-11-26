@@ -7,27 +7,15 @@ podTemplate(containers: [
             container('mypython') {
                 stage('Hello') {
                     sh '''
-                    echo "Hello Docker agent"
-                    [ -f /tmp/zip_job.sh ] && echo "zip_job.sh EXIST at /tmp ."; ./tmp/zip_job.sh || echo "FILE does not exist."
-                    cd /tmp; chmod 755 zip_job.sh ; ./zip_job.sh
-                    rm *.txt *.zip; ls -lart
-                    cat /etc/os-release
-                    '''
-                    
-                }
-            }
-            
-            agent { label 'master'} {
-                stage('2nd stage') {
-                    sh '''
-                    echo "Hello Docker agent - second node test"
-                    whoami
+                    cd /var/jenkins_home/workspace
                     pwd
+                    ./zip_job.sh
                     '''
                     
                 }
             }
             
+ 
         }
               
     }
