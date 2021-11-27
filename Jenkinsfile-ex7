@@ -1,17 +1,18 @@
 podTemplate(containers: [
-    containerTemplate(name: 'mypython', image: 'ahiaz:latest', command: 'sleep', args: '99d'),
+    containerTemplate(name: 'centos', image: 'ahiaz:latest', command: 'sleep', args: '99d'),
     
   ]) {
 
     node(POD_LABEL) {
         stage('Hello Python') {
-            container('mypython') {
-                stage('Hello') {
+         git url 'https://github.com/ahiazd/minikube-jenkins-proj.git'
+            container('centos') {
+                stage('Run zip script') {
                     sh '''
-                    git clone https://github.com/ahiazd/minikube-jenkins-proj.git;
                     ls -lart
-                    echo "OS version: "
-                    cat /etc/os-release            
+                    find . -name zpi_job.sh
+                    pwd
+                    
                     '''
                     
                 }
