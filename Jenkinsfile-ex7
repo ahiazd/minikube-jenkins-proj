@@ -1,22 +1,19 @@
 podTemplate(containers: [
-    containerTemplate(name: 'mypython', image: 'ahiaz:latest', command: 'sleep', args: '99d'),
-   
+    containerTemplate(name: 'centos', image: 'ahiaz:latest', command: 'sleep', args: '99d'),
+    
   ]) {
 
     node(POD_LABEL) {
         stage('Hello Python') {
-         git url 'https://github.com/ahiazd/minikube-jenkins-proj.git'
-            container('mypython') {
+            container('centos') {
                 stage('Run zip script') {
                     sh '''
-                    ls -lart
-                    find . -name zpi_job.sh
-                    pwd
-                    
+                    echo "This is a scripted pipeline running as an agnet... "                  
                     '''
                     
                 }
             }
         }
-    }       
+    }
+        
 }
