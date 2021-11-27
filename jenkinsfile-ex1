@@ -9,7 +9,7 @@ podTemplate(containers: [
                 stage('Hello') {
                     sh '''
                     echo "This is a scripted pipeline running as an agnet... "     
-                    git clone https://github.com/ahiazd/minikube-jenkins-proj.git
+                    #git clone https://github.com/ahiazd/minikube-jenkins-proj.git
                     ls -lart
                     cd /home/jenkins/agent; 
                     ls -lart
