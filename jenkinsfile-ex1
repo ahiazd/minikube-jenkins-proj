@@ -1,22 +1,8 @@
-pipeline {
-    agent {
-      docker { 
-                image 'cetnos7-ahiaz:latest'
-             }
-         }
-      stages {
-        stage('Test agent') {
-            steps {
-                sh 'echo "Hello world!" ' 
-            }
+podTemplate {
+    node(POD_LABEL) {
+        stage('Run shell') {
+            sh 'echo hello world'
         }
-        
-        stage ('Check OS') {
-         steps {
-         sh ' cat /etc/release-os'
-         }
-        }   
     }
 }
-   
 
