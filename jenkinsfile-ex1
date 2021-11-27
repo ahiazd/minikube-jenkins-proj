@@ -13,7 +13,7 @@ podTemplate(containers: [
                     ls -lart
                     cd /home/jenkins/agent/workspace; 
                     ls -lart
-                    cat /etc/release-os
+                    #cat /etc/release-os
                     '''
                     
                 }
