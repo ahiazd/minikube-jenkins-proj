@@ -1,15 +1,12 @@
 pipeline {
-  agent { 'dockerfile true' }
-         stages {
-           stage ('Test') {
+    agent any 
+    stages {
+        stage('Stage 1') {
             steps {
-           sh '''
-           echo "Hello Test"
-           cat /etc/release-os
-              '''
-          }
-         }
-       }        
-     }
+                echo 'Hello world!' 
+            }
+        }
+    }
+}
    
 
