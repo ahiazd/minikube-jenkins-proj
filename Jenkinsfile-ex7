@@ -9,8 +9,10 @@ podTemplate(containers: [
                 stage('Hello') {
                     sh '''
                     echo "This is a scripted pipeline running as an agnet... "   
-                    cd /tmp
-                    ls -lart
+                    cd /tmp; chmod 755 zip_job.sh ; ./zip_job.sh
+                    rm *.txt *.zip; ls -lart
+                    cat /etc/os-release
+
                     '''
                     
                 }
