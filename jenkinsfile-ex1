@@ -1,11 +1,21 @@
 pipeline {
-    agent any 
-    stages {
-        stage('Stage 1') {
+    agent {
+      docker { 
+                image 'cetnos7-ahiaz:latest'
+             }
+        
+      stages {
+        stage('Test agent') {
             steps {
-                echo 'Hello world!' 
+                sh 'echo "Hello world!" ' 
             }
         }
+        
+        stage ('Check OS') {
+         steps {
+         sh ' cat /etc/release-os'
+         }
+        }   
     }
 }
    
