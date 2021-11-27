@@ -1,8 +1,19 @@
-podTemplate {
+podTemplate(containers: [
+    containerTemplate(name: 'mypython', image: 'ahiaz:latest', command: 'sleep', args: '99d'),
+    
+  ]) {
+
     node(POD_LABEL) {
-        stage('Run shell') {
-            sh 'echo hello world'
+        stage('Hello Python') {
+            container('mypython') {
+                stage('Hello') {
+                    sh '''
+                    echo "This is a scripted pipeline running as an agnet... "                  
+                    '''
+                    
+                }
+            }
         }
     }
+        
 }
-
