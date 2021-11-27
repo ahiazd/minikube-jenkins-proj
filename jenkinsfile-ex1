@@ -11,7 +11,7 @@ podTemplate(containers: [
                     echo "This is a scripted pipeline running as an agnet... "     
                     #git clone https://github.com/ahiazd/minikube-jenkins-proj.git
                     ls -lart
-                    cd /home/jenkins/agent/workspace; 
+                    cd /home/jenkins/agent/workspace; cd test-agent;
                     ls -lart
                     #cat /etc/release-os
                     '''
