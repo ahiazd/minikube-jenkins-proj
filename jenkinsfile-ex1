@@ -3,7 +3,7 @@ pipeline {
       docker { 
                 image 'cetnos7-ahiaz:latest'
              }
-        
+         }
       stages {
         stage('Test agent') {
             steps {
