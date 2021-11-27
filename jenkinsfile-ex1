@@ -8,7 +8,8 @@ podTemplate(containers: [
             container('mypython') {
                 stage('Hello') {
                     sh '''
-                    echo "This is a scripted pipeline running as an agnet... "                  
+                    echo "This is a scripted pipeline running as an agnet... "     
+                    cat /etc/release-os
                     '''
                     
                 }
