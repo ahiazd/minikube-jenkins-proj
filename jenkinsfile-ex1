@@ -1,5 +1,5 @@
 podTemplate(containers: [
-    containerTemplate(name: 'mypython', image: 'ahiaz:latest', command: 'sleep', args: '99d'),
+    containerTemplate(name: 'mypython', image: 'cetnos7-ahiaz:latest', command: 'sleep', args: '99d'),
     
   ]) {
 
