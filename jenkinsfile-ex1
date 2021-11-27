@@ -1,24 +1,17 @@
 pipeline {
-   agent any
-    stages {
-        stage('test') {
+  agent {
+   docker {image 'cetnos7-ahiaz'}
+       }
+         stages {
+           stage ('Test') {
             steps {
-                sh 'echo "hello"'
-            }
-           }
-         stage ('test script') {
-         agent { label 'master' }
-            steps {
-         sh 'echo "Hello test2" '
-             }
-            }
-          stage ('test script') { 
-            agent { dockerfile true} 
-           steps {
-           sh 'echo "~~~~ running dockerfile as an agent ~~~~~ "'
-           }
-           }
+           sh '''
+           echo "Hello Test"
+           cat /etc/release-os
+              '''
+          }
          }
-      }
-      
+       }        
+     }
+   
 
