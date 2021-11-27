@@ -1,14 +1,21 @@
-pipeline {
-    agent { label 'master' }
-    stages {
-        stage('Test') {
-            steps {
-                sh '''
-                echo "HELLO"
-                whoami
-                pwd
-                '''
+podTemplate(containers: [
+    containerTemplate(name: 'mygradle', image: 'gradle:latest', command: 'sleep', args: '99d'),
+    
+  ]) {
+
+    node(POD_LABEL) {
+        stage('Hello Gradle') {
+            container('mygradle') {
+                stage('Hello Gradle') {
+                    sh '''
+                    echo " gradle as an agent in Kuberntes"
+                    whoami
+                    pwd
+                    '''
+                    
+                }
             }
         }
     }
+        
 }
