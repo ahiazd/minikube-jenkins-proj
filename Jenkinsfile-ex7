@@ -1,14 +1,16 @@
 podTemplate(containers: [
-    containerTemplate(name: 'alpine', image: 'alpine:latest', command: 'sleep', args: '99d'),
+    containerTemplate(name: 'centos', image: 'cetnos7-ahiaz:latest', command: 'sleep', args: '99d'),
     
   ]) {
 
     node(POD_LABEL) {
         stage('Hello Python') {
-            container('alpine') {
+            container('centos') {
                 stage('Hello') {
                     sh '''
-                    echo "This is a scripted pipeline running as an agnet... "                  
+                    echo "This is a scripted pipeline running as an agnet... "   
+                    cd /tmp
+                    ls -lart
                     '''
                     
                 }
